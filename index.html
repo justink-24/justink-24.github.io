@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Your Name — Portfolio</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap');
+
+  :root{
+    --ink: #16181d;
+    --paper: #eae3d3;
+    --paper-dim: #d9d0ba;
+    --indigo: #2b3a55;
+    --rust: #c1502e;
+    --brass: #b08a3e;
+    --moss: #5c6e4a;
+    --line: rgba(234,227,211,0.14);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:
+      radial-gradient(ellipse at top left, #1c2438 0%, transparent 55%),
+      radial-gradient(ellipse at bottom right, #1a1f2c 0%, transparent 55%),
+      var(--ink);
+    color: var(--paper);
+    font-family: 'Space Grotesk', sans-serif;
+    line-height: 1.5;
+  }
+
+  .wrap{
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 48px 24px 80px;
+  }
+
+  /* ---------- header ---------- */
+  header{
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 28px;
+    margin-bottom: 40px;
+  }
+  .eyebrow{
+    font-family:'JetBrains Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.22em;
+    color: var(--brass);
+    margin: 0 0 8px;
+  }
+  h1{
+    font-size: clamp(2.2rem, 6vw, 3.2rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin: 0 0 10px;
+    line-height: 1.02;
+  }
+  .role{
+    font-size: 1.05rem;
+    color: rgba(234,227,211,0.72);
+    margin: 0 0 22px;
+    max-width: 60ch;
+  }
+
+  .links{
+    display:flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .links a{
+    font-family:'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    color: var(--paper);
+    text-decoration: none;
+    border: 1px solid rgba(234,227,211,0.3);
+    padding: 8px 14px;
+    transition: background 120ms ease, border-color 120ms ease, color 120ms ease;
+  }
+  .links a:hover{
+    background: var(--rust);
+    border-color: var(--rust);
+  }
+  .links a:focus-visible{
+    outline: 2px solid var(--brass);
+    outline-offset: 2px;
+  }
+
+  /* ---------- about ---------- */
+  section{ margin-bottom: 56px; }
+  .section-label{
+    font-family:'JetBrains Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.22em;
+    color: var(--brass);
+    margin: 0 0 16px;
+  }
+  .about p{
+    max-width: 68ch;
+    color: rgba(234,227,211,0.85);
+    font-size: 1rem;
+    margin: 0 0 14px;
+  }
+
+  /* ---------- projects grid ---------- */
+  .grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 16px;
+  }
+
+  .card{
+    background: linear-gradient(160deg, #232a3d, #1a2030);
+    border: 1px solid rgba(234,227,211,0.15);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 140ms ease, border-color 140ms ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .card:hover{
+    transform: translateY(-3px);
+    border-color: var(--brass);
+  }
+  .card:focus-visible{
+    outline: 2px solid var(--brass);
+    outline-offset: 2px;
+  }
+
+  .card .tag{
+    font-family:'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.14em;
+    color: var(--brass);
+  }
+  .card h3{
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+  .card p{
+    margin: 0;
+    font-size: 0.88rem;
+    color: rgba(234,227,211,0.7);
+    flex-grow: 1;
+  }
+  .card .stack{
+    font-family:'JetBrains Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.06em;
+    color: rgba(234,227,211,0.45);
+    padding-top: 8px;
+    border-top: 1px solid rgba(234,227,211,0.1);
+  }
+
+  .card.placeholder{
+    border-style: dashed;
+    border-color: rgba(234,227,211,0.2);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: rgba(234,227,211,0.4);
+    font-family:'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    min-height: 140px;
+    cursor: default;
+  }
+  .card.placeholder:hover{ transform: none; border-color: rgba(234,227,211,0.2); }
+
+  /* accent swatch strip per card */
+  .card::before{
+    content:'';
+    position:absolute;
+    top:0; left:0; right:0;
+    height: 3px;
+    background: var(--rust);
+  }
+  .card[data-accent="moss"]::before{ background: var(--moss); }
+  .card[data-accent="indigo"]::before{ background: var(--indigo); }
+  .card[data-accent="brass"]::before{ background: var(--brass); }
+
+  footer{
+    border-top: 1px solid var(--line);
+    padding-top: 20px;
+    font-family:'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.06em;
+    color: rgba(234,227,211,0.4);
+    display:flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header>
+    <p class="eyebrow">PORTFOLIO — BUILD LOG</p>
+    <h1>Your Name</h1>
+    <p class="role">Software / CS student, building small projects to learn by shipping. This site is where they land.</p>
+    <div class="links">
+      <a href="https://github.com/yourusername" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:you@example.com">Email</a>
+    </div>
+  </header>
+
+  <section class="about">
+    <p class="section-label">ABOUT</p>
+    <p>
+      I'm a CS student learning by building — mostly small, self-contained
+      projects that let me focus on one interesting problem at a time rather
+      than a giant unfinished app. Right now that means game logic, UI
+      polish, and picking up whatever tools a project actually calls for.
+    </p>
+    <p>
+      Replace this paragraph with your own story: what you're studying,
+      what you're curious about, and what kind of work you're looking for
+      (internship, first job, freelance, etc). Keep it to a few sentences —
+      the projects below do most of the talking.
+    </p>
+  </section>
+
+  <section class="projects">
+    <p class="section-label">PROJECTS</p>
+    <div class="grid">
+
+      <a class="card" data-accent="rust" href="https://yourusername.github.io/2048-ledger/" target="_blank" rel="noopener">
+        <span class="tag">GAME · 2026</span>
+        <h3>2048 — Ledger</h3>
+        <p>A from-scratch 2048 build with a stamped-ledger visual theme, animated tile slides/merges, and a persistent best score.</p>
+        <span class="stack">HTML · CSS · Vanilla JS</span>
+      </a>
+
+      <div class="card placeholder">Next project goes here</div>
+      <div class="card placeholder">Next project goes here</div>
+
+    </div>
+  </section>
+
+  <footer>
+    <span>Built with HTML, CSS, and vanilla JS — no framework.</span>
+    <span>Updated 2026</span>
+  </footer>
+
+</div>
+
+</body>
+</html>
