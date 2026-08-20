@@ -1,38 +1,37 @@
-# justink-24.github.io
+# Hi, I'm Justin
 
-Justin Kpana's personal portfolio homepage: an about section plus a grid of
-project cards linking out to individual project sites/repos (e.g.
-`2048-ledger`).
+I'm a CS student who likes projects that sit at the intersection of
+creativity and technology, and I'm digging into machine learning and
+the core ideas behind how AI actually works.
 
-## Repo name
+This repo powers my portfolio site: **https://justink-24.github.io**
 
-This repo must be named exactly `justink-24.github.io` for GitHub Pages to
-serve it at the root domain instead of a `/reponame/` subpath.
+It's a live page with a bit about me and a growing list of the things
+I've built:
 
-## Already filled in
+- [2048 Ledger](https://justink-24.github.io/2048-ledger/), a from-scratch
+  build of 2048 with a custom visual theme and animated tile merges.
+- [Pathfinder](https://justink-24.github.io/pathfinder/), a grid
+  pathfinding visualizer with BFS, DFS, Dijkstra, and A*.
 
-- Name, tagline, and links (GitHub, LinkedIn, email) in the header
-- The about section, covering creative/technical projects and interest in ML and AI
-- The 2048 project card, pointing at `https://justink-24.github.io/2048-ledger/`
+**Find me:**
+- GitHub: [justink-24](https://github.com/justink-24)
+- LinkedIn: [justin-kpana](https://www.linkedin.com/in/justin-kpana-a31904297)
+- Email: justinkpana23@gmail.com
 
-## Still to edit
+---
 
-- The two dashed "Next project goes here" placeholder cards, once you have
-  another project to add (copy the 2048 card's structure and change
-  `data-accent` to `rust`, `moss`, `indigo`, or `brass` to vary the top
-  stripe color)
+## Repo notes
 
-## Deploy
+This repo is named `justink-24.github.io`, the special format GitHub
+Pages uses to serve a repo at the root domain instead of a
+`/reponame/` subpath.
 
-1. Create a GitHub repo named `justink-24.github.io` (must match exactly).
-2. Upload `index.html` (and this README if you want) to it.
-3. Settings, Pages, Source: `Deploy from a branch`, Branch `main`,
-   folder `/ (root)`, Save.
-4. Live at `https://justink-24.github.io` within a minute or two, no
-   `/reponame/` in the URL, since this is the special account-level repo.
+**Deploying changes:** edit `index.html`, commit, and GitHub Pages
+picks it up automatically within a minute or two. No build step.
 
-## Adding another project later
-
-Each new project can live as its own small repo (like `2048-ledger`) with
-its own Pages URL, or exist elsewhere entirely. Either way, just add a new
-card to the grid in `index.html` linking out to it.
+**Adding a project:** each project can live as its own small repo
+(like `2048-ledger`) with its own Pages URL. Add a card for it to the
+grid in `index.html`, copying the 2048 card's structure and swapping
+`data-accent` to `rust`, `moss`, `indigo`, or `brass` for a different
+top stripe color.
